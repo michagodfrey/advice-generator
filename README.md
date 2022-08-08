@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor Solution Page](https://your-solution-url.com)
+- Solution URL: [Frontend Mentor Solution Page](https://www.frontendmentor.io/solutions/advice-generator-using-an-api-and-fetch-F_lg6ly0N)
 - Live Site URL: [Live Page on GitHub pages](https://https://michagodfrey.github.io/advice-generator)
 
 ## My process
@@ -47,29 +47,26 @@ Users should be able to:
 
 ### What I learned
 
-This was the first time I completed a project using fetch and a third party API without direct guidance from a tutorial. I'm unsure they way I've made this is best practice. The button just reloads the page.
+This was the first time I completed a project using fetch and a third party API without direct guidance from a tutorial.
 
-```html
-<button type="button" class="card__button" onClick="window.location.reload(true)">
-```  
-
-Below is the way I used fetch to get the data from Advice Slip JSON API when the page loads. One subtle detail in the design was the style of the quotation marks was not the standard text. I solved this with the character entities either side of the advice.
+# Update 08/08/2022
+The original attempt simply refreshed the page when the button was clicked, fetching a new random phrase each time. I was not happy with this solution, and have updated the the JavaScript function to make use of async and await.
 
 ```js
-const id = document.getElementById("id");
-const advice = document.getElementById("advice");
-
-fetch('https://api.adviceslip.com/advice')
-  .then(response => response.json())
-  .then(adviceData => {
-    const adviceSlip = adviceData.slip;
-    id.innerHTML = `Advice #${adviceSlip.id}`;
-    advice.innerHTML = `&ldquo;${adviceSlip.advice}&rdquo;`;
-  }).catch(error => {
-    console.log(error);
-    id.innerHTML = `Error`;
-    advice.innerHTML = `Sorry. Something went wrong :(`;
-  });
+const getAdvice = async () => {
+    const response = await fetch('https://api.adviceslip.com/advice?t=' + Math.random())
+    .then(res => res.json())
+    .then((adviceData) => {
+      const adviceSlip = adviceData.slip;
+      id.innerHTML = `Advice #${adviceSlip.id}`;
+      advice.innerHTML = `&ldquo;${adviceSlip.advice}&rdquo;`;
+    })
+    .catch((error) => {
+      console.log(error);
+      id.innerHTML = `Error`;
+      advice.innerHTML = `Sorry. Something went wrong :(`;
+    });
+}
 ```
 
 ### Continued development
@@ -78,7 +75,6 @@ I will continue to complete projects that involve retrieving data from third par
 
 ### Useful resources
 
-- [Youtube video by Oston Code Cypher](https://www.youtube.com/watch?v=2AfzKmgqWUE&ab_channel=OstonCodeCypher) - While I didn't use the exact same method to it was watching this video that helped me figure out how to complete this challenge.
 - [CSS Code Generator](https://html-css-js.com/css/generator/) - This webpage is a great resource to generate custom effects. The glow effect was created from code generated from this site.
 
 ## Author

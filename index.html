@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="normalize.css">
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
-  <title>Frontend Mentor | Advice generator app</title>
-</head>
-<body>
-  <main>
-    <div class="card">
-      <!-- h1 element display set to none; included to address accessibility issues -->
-      <h1>Advice Generator</h1>
-      <span id="id"></span>
-      <p id="advice"></p>
-      <div class="card__pattern"></div>
-      <button type="button" class="card__button" onClick="window.location.reload(true)">
-        <img src="images/icon-dice.svg" alt="die button">
-      </button>
-    </div>
-  </main>
-  <footer>
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="https://michagodfrey.github.io/" target="_blank">Michael Godfrey</a>.
-    </div>
-  </footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+    <title>Frontend Mentor | Advice generator app</title>
+  </head>
+  <body>
+    <main>
+      <h1 class="hidden-title">Advice Generator App</h1>
+      <div class="card">
+        <span id="id"></span>
+        <p id="advice"></p>
+        <div class="card__pattern"></div>
+        <button id="button" type="button" class="card__button">
+          <img src="images/icon-dice.svg" alt="die button" />
+        </button>
+      </div>
+    </main>
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://michagodfrey.github.io/" target="_blank"
+          >Michael Godfrey</a
+        >.
+      </div>
+    </footer>
+  </body>
 </html>
